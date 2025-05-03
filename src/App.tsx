@@ -7,6 +7,7 @@ import { getData } from "./constants/db.ts";
 
 const courses = getData();
 
+// @ts-ignore
 const telegram = window.Telegram?.WebApp;
 
 const App = () => {
