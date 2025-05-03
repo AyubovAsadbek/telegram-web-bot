@@ -6,7 +6,7 @@ import { getData } from "./constants/db";
 import { Course } from "./types/types";
 
 const courses = getData();
-// @ts-ignore
+// @ts-expect-error because it is telegram type
 const telegram = window.Telegram.WebApp;
 
 const App = () => {
