@@ -49,31 +49,12 @@ const App = () => {
   };
 
   const onCheckout = () => {
-    if (cartItems.length !== 0) {
-      telegram.MainButton.text = "Sotib olish :)";
-      telegram.MainButton.show();
-    } else {
-      telegram.MainButton.hide();
-    }
+    telegram.MainButton.text = "Sotib olish :)";
+    telegram.MainButton.show();
   };
 
   const onSendData = useCallback(() => {
-    const queryID = telegram.initDataUnsafe?.query_id;
-
-    if (queryID) {
-      fetch("https://telegramwebapibot-b671371abfbb.herokuapp.com/web-data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          products: cartItems,
-          queryID: queryID,
-        }),
-      });
-    } else {
-      telegram.sendData(JSON.stringify(cartItems));
-    }
+    telegram.sendData(JSON.stringify(cartItems));
   }, [cartItems]);
 
   useEffect(() => {
