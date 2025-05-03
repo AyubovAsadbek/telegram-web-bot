@@ -14,8 +14,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: rgb(227, 112, 30);
   border-radius: 100%;
   text-align: center;
@@ -25,7 +25,7 @@
   transform: translate(20px, -20px) scale(1);
   transition: all 0.3s ease;
   opacity: 0.8;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   animation: scaleanimation 1s ease infinite;
   color: #fff;
@@ -58,7 +58,7 @@
 }
 
 .card__price {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
