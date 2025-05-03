@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/card.tsx";
 import Cart from "./components/cart/cart.tsx";
-
+import { Course } from "./types/types.ts";
 import { getData } from "./constants/db.ts";
 
 const courses = getData();
@@ -10,13 +10,13 @@ const courses = getData();
 const telegram = window.Telegram?.WebApp;
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<Course[]>([]);
 
   useEffect(() => {
     telegram?.ready();
   }, []);
 
-  const onAddItem = (item) => {
+  const onAddItem = (item: Course) => {
     const existItem = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (existItem) {
@@ -32,7 +32,7 @@ const App = () => {
     }
   };
 
-  const onRemoveItem = (item) => {
+  const onRemoveItem = (item: Course) => {
     const existItem = cartItems.find((cartItem) => cartItem.id === item.id);
     if (existItem?.quantity === 1) {
       const newData = cartItems.filter((cartItem) => cartItem.id !== item.id);
